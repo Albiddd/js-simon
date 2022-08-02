@@ -94,3 +94,26 @@ li {
 .active, .dot:hover {
 	background-color: rgb(255, 255, 255, 0.6);
 }
+
+.auto-buttons{
+	display: block;
+	margin: 0 auto;
+	background-color: transparent;
+	font-size: 1.25rem;
+	font-weight: 600;
+	border: 2px solid grey;
+	border-radius: 8px;
+	padding: 3px;
+	margin-top: 10px;
+	color: grey;
+	cursor: pointer;
+}
+.auto-buttons:hover{
+	color: white;
+	background-color: rgb(208, 208, 208);
+}
+
+
+.hidden{
+	display: none;
+}

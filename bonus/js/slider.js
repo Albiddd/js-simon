@@ -127,18 +127,41 @@ document.getElementById('dot5').addEventListener('click', function(){
  BONUS ESERCIZIO SIMON
 	creare un carosello automatico
 ****************************************************************************** */
+let slideIntervalRef
 
-setInterval(() =>{
-    //togliere la classe active dalla slide attiva
-	const slideActive = slideElements[currentIndex]
-	slideActive.classList.remove('active')	
-	
-	currentIndex++
-	if (currentIndex > slideElements.length-1){
-		currentIndex = 0
-	}
-	
-	let nextSlide = slideElements[currentIndex]
-	nextSlide.classList.add('active')
+const startAuto = document.querySelector(".start-auto")
 
-},5000)
+startAuto.addEventListener('click', function (){
+	
+	startAuto.classList.add('hidden')
+	stopAuto.classList.remove('hidden')
+
+	if(slideIntervalRef){  //se il valore di slideInterval è diverso da 0 o null o undefined risulta sempre true
+		return
+    }
+
+	slideIntervalRef = setInterval( () => {
+		//togliere la classe active dalla slide attiva
+		const slideActive = slideElements[currentIndex]
+		slideActive.classList.remove('active')	
+		
+		currentIndex++
+		if (currentIndex > slideElements.length-1){
+			currentIndex = 0
+		}
+		
+		let nextSlide = slideElements[currentIndex]
+		nextSlide.classList.add('active')
+
+	},3500)
+})
+const stopAuto = document.querySelector(".stop-auto")
+stopAuto.addEventListener('click', function(){
+
+	stopAuto.classList.add('hidden')
+	startAuto.classList.remove('hidden')
+
+    clearInterval(slideIntervalRef)
+    slideIntervalRef = null
+    
+})
