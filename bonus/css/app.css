@@ -64,13 +64,14 @@ ul {
 }
 
 li {
+	position: relative;
 	animation-name: fade;
-	animation-duration: 1s;
+	animation-duration: 2s;	
 }
 
 @keyframes fade {
-	from {opacity: .7}
-	to {opacity: 1}
+	from {opacity: 0.4;}
+	to {opacity: 1;}	
 }
 
 .nav-dots{
